@@ -132,11 +132,19 @@ export default function Navbar() {
             </Link>
           </div>
 
-          <Link href="/login" onClick={closeMenu} className="w-full">
-            <button className="flex items-center justify-center w-full gap-2 btn-primary">
-              <p>Login</p>
+          {token ? (
+            <button
+              onClick={handleLogout}
+              className="flex items-center justify-center w-full gap-2 btn-secondary">
+              <p>Logout</p>
             </button>
-          </Link>
+          ) : (
+            <Link href="/login" onClick={closeMenu} className="w-full">
+              <button className="flex items-center justify-center w-full gap-2 btn-primary">
+                <p>Login</p>
+              </button>
+            </Link>
+          )}
         </div>
       </div>
     </div>
